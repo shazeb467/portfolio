@@ -1,10 +1,20 @@
-// import Test from "/src/assets/components/Test";
-// import Test from "./assets/components/Test";
-import Test from "@/assets/components/Test"; //
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
+const routeConfiguration = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
 function App() {
-  return <Test />;
+  return <RouterProvider router={routeConfiguration} />;
 }
 
 export default App;
