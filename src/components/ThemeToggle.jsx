@@ -2,7 +2,7 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ onThemeChange }) => {
   const storedTheme = localStorage.getItem("theme") === "dark";
   const [isDarkMode, setIsDarkMode] = useState(storedTheme);
 
@@ -12,7 +12,13 @@ const ThemeToggle = () => {
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, [isDarkMode]);
+
+    // Render stars and meteor only in dark Theme
+    //safe access
+    if (onThemeChange) {
+      onThemeChange(isDarkMode); //re-rnder the Home.jsx
+    }
+  }, [isDarkMode]); //re-render the ThemeToggle.jsx
 
   const toggleTheme = () => {
     if (isDarkMode) {
