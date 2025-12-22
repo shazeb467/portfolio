@@ -3,6 +3,7 @@ import StarBackground from "../components/StarBackground";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
 
 const Home = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(
@@ -23,6 +24,7 @@ const Home = () => {
       {/* Main Content */}
       <main>
         <HeroSection />
+        <AboutSection />
       </main>
 
       {/* Footer  */}
