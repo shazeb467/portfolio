@@ -1,6 +1,7 @@
 import ThemeToggle from "../components/ThemeToggle";
 import StarBackground from "../components/StarBackground";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(
@@ -8,15 +9,20 @@ const Home = () => {
   );
 
   return (
-    <h1 className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Theme Toggle  */}
       <ThemeToggle onThemeChange={setIsDarkTheme} />
+
       {/* Background Effects */}
       {isDarkTheme && <StarBackground />}
+      
       {/* NavBar */}
+      <Navbar />
+      
       {/* Main Content */}
+      
       {/* Footer  */}
-    </h1>
+    </div>
   );
 };
 
