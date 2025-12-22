@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
-          href="#home"
+          href="#hero"
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground">Shazeb </span>
