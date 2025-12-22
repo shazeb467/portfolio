@@ -2,6 +2,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import StarBackground from "../components/StarBackground";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(
@@ -15,12 +16,15 @@ const Home = () => {
 
       {/* Background Effects */}
       {isDarkTheme && <StarBackground />}
-      
+
       {/* NavBar */}
       <Navbar />
-      
+
       {/* Main Content */}
-      
+      <main>
+        <HeroSection />
+      </main>
+
       {/* Footer  */}
     </div>
   );
