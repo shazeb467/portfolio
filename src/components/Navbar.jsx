@@ -1,29 +1,15 @@
 import { navItems } from "../utils/constants";
 import { cn } from "../lib/utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <nav
       className={cn(
-        "fixed w-full z-20 transition-all duration-300 bg-background/80 backdrop-blur-md shadow-xs border-b",
-        isScrolled ? "py-3" : "py-5"
+        "fixed w-full z-40 py-5 transition-all duration-300 border bg-background"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -57,7 +43,7 @@ const Navbar = () => {
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="md:hidden p-2 text-foreground z-100 cursor-pointer"
+          className="md:hidden p-2 text-foreground z-40 cursor-pointer"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,7 +52,8 @@ const Navbar = () => {
         {/* mobile nav */}
         <div
           className={cn(
-            "md:hidden fixed inset-0 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center transition-all duration-300",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
