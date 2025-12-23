@@ -9,10 +9,10 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 py-5 transition-all duration-300 border bg-background"
+        "fixed w-full z-40 py-5 transition-all duration-300 border-b bg-background"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between gap-8">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
